@@ -1,0 +1,37 @@
+<ion-menu class="menu"  contentId="main-content" (ionWillOpen)="onMenuOpen()">
+  <ion-content class="opciones" >
+    <div class="container">
+        <div class="dataUser">
+
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img class="imgUser" src="assets/icon-user.png" alt="img">
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-text>{{namesUser}}</ion-text>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-text>{{rolUser}}</ion-text>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+      </div>
+      <ion-menu-toggle autoHide="true">
+        <div class="paginas" *ngFor="let item of items"
+        [routerLink]="item.redirect">
+         <hr>
+           <div class="logo1">
+             <img [src]="item.image" alt="Imagen">
+           </div>&nbsp;<div class="nombre">{{item.name}}</div>
+       </div>
+      </ion-menu-toggle>
+      <br>
+      <hr>
+    </div>
+  </ion-content>
+</ion-menu>

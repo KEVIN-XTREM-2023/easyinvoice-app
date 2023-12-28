@@ -1,0 +1,139 @@
+<ion-content>
+
+  <div class="head">
+    <div id="menu">
+      
+    </div>
+    <ion-text class="title">Gestión Productos</ion-text>
+  </div>
+
+  <div class="contentPage">
+
+    <ion-grid>
+
+      <ion-row>
+        <ion-col>
+          <ion-searchbar class="search" show-clear-button="focus" placeholder="Buscar.."></ion-searchbar>
+        </ion-col>
+        <ion-col>
+          <ion-button [disabled]="selectedItems.length === 0" (click)="vender()">   </ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+   <div>
+
+    <ion-list>
+      <ion-item-sliding *ngFor="let item of items" (press)="selectItem(item)">
+        <ion-item class="itemProd" id="open-modal" [class.selected]="isSelected(item)">
+          <div class="imgIcon">
+            <ion-img src="assets/icon/articulos-de-compra.png" slot="start"></ion-img>
+          </div>
+          <ion-label>
+            <h2>{{ item.name }}</h2>
+            <p>{{ item.description }}</p>
+          </ion-label>
+        </ion-item>
+  
+        <ion-item-options side="start">
+          <ion-item-option color="primary" expandable (click)="editItem(item)">
+            Editar
+          </ion-item-option>
+        </ion-item-options>
+  
+        <ion-item-options side="end">
+          <ion-item-option color="danger" expandable (click)="deleteItem(item)">
+            Eliminar
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+
+
+   </div> 
+
+  </div>
+
+  <ion-fab slot="fixed" horizontal="end" vertical="bottom">
+    <ion-fab-button class="btnFab">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    
+  </ion-fab>
+
+  <div>
+    <ion-modal #modal trigger="open-modal"  [showBackdrop]="showBackdrop" >
+      <ng-template>
+        <ion-content>
+          <div class="modal">
+            <div class="headModal">
+              <ion-text class="titleModal"> Producto </ion-text>
+            </div>
+
+            <div class="icon-modal">
+              <ion-img src="assets/icon/icon_art_com_modal.png"></ion-img>
+            </div>
+
+            <div class="content">
+
+              <ion-grid class="gridContent">
+
+                <ion-row>
+                  <ion-col>
+                    <ion-text>Codigo{{codigo_barras}}</ion-text>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-text>Nombre{{nom_producto}}</ion-text>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-text>Descripcion{{descrip_prod}}</ion-text>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-text>Promocion{{id_prom_pro}}</ion-text>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-text>Categoria{{id_cat_pro}}</ion-text>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-text>Unidades disponibles{{unidades_dispon}}</ion-text>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-text>Precio{{precio}}</ion-text>
+                  </ion-col>
+                </ion-row>
+              
+              </ion-grid>
+              <ion-item class="inputCant">
+                <ion-input label="Cantidad" type="number" placeholder="000" min="0" pattern="^[0-9]+$"></ion-input>
+              </ion-item>
+              <ion-button class="btnModal"> Vender </ion-button>
+
+            </div>
+
+          </div>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </div>
+
+
+</ion-content>

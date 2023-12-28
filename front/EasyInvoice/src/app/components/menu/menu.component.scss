@@ -1,0 +1,54 @@
+.dataUser {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Inter";
+    width: auto;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .opciones {
+    --background: #063970;
+  
+  }
+  
+  .logo {
+    display: flex;
+    justify-content: center;
+    width: 94px;
+    height: 94px;
+    align-items: center;
+  }
+  
+  .paginas {
+    overflow: hidden;
+    margin-top: 20px;
+  }
+  
+  .logo1 {
+    margin-left: 20px;
+    float: left;
+    width: 68px;
+    flex-shrink: 0;
+    margin-top: 15px;
+  }
+  
+  .nombre {
+    display: flex;
+    float: right;
+    width: 200px;
+    font-size: 20px;
+    font-family: "Inter";
+    margin-top: 20px;
+  }
+  
+  hr {
+    background-color: white;
+  }
+  
+  .menu {
+    --border-top-right-radius: 30px;
+    --border-bottom-right-radius: 30px;
+  }
+  
